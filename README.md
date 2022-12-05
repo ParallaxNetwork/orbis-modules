@@ -2,6 +2,10 @@
 
 > Decentralized social modules created with the Orbis SDK
 
+## Live Demo
+
+You can see the live demo [here](https://orbis-modules.vercel.app/)
+
 ## Install
 
 Coming soon
@@ -155,7 +159,3 @@ export default function App() {
 ## Custom Styling
 
 Coming soon
-
-## Live Demo
-
-You can see the live demo [here](https://orbis-modules.vercel.app/)
