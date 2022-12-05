@@ -75,6 +75,7 @@ function App() {
             context={context}
             algorithm="all-context-master-posts"
             postboxPlaceholder="Share your comment here..."
+            overflowLimit={0}
           />
         </div>
       </div>

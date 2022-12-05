@@ -43,7 +43,11 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
-        <OrbisProvider orbis={OrbisClient} showPoweredByOrbis={true}>
+        <OrbisProvider
+          orbis={OrbisClient}
+          showPoweredByOrbis={true}
+          showCerscanProof={false}
+        >
           <App />
         </OrbisProvider>
       </RainbowKitProvider>
