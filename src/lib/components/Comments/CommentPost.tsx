@@ -97,6 +97,7 @@ const CommentPost = ({
           master={post}
           replyTo={replyTo}
           innerPostbox={innerPostbox}
+          overflowLimit={overflowLimit}
           onClickReply={(post) => {
             setReplyTo(post)
             setScrollToEl('postbox')

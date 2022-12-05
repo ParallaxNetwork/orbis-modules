@@ -7,11 +7,13 @@ const RepliesGroup = ({
   items,
   replies,
   replyTo = null,
+  overflowLimit = 0,
   onClickReply
 }: {
   items: IOrbisPost[]
   replies: Record<string, IOrbisPost[]>
   replyTo: IOrbisPost | null
+  overflowLimit?: number
   onClickReply: (value: IOrbisPost | null) => void
 }) => {
   return (
@@ -21,6 +23,7 @@ const RepliesGroup = ({
           <Post
             post={item}
             replyTo={replyTo}
+            overflowLimit={overflowLimit}
             onClickReply={() => onClickReply(item)}
           />
           {replies[item.stream_id] !== undefined && (
@@ -42,6 +45,7 @@ const Replies = ({
   master,
   innerPostbox,
   replyTo,
+  overflowLimit = 0,
   onClickReply,
   onNewPost
 }: {
@@ -49,6 +53,7 @@ const Replies = ({
   master: IOrbisPost
   innerPostbox: LegacyRef<HTMLDivElement> | null
   replyTo: IOrbisPost | null
+  overflowLimit?: number
   onClickReply: (value: IOrbisPost | null) => void
   onNewPost: (el: HTMLElement) => void
 }) => {
@@ -121,6 +126,7 @@ const Replies = ({
           items={repliesGroups[master.stream_id]}
           replies={repliesGroups}
           replyTo={replyTo}
+          overflowLimit={overflowLimit}
           onClickReply={onClickReply}
         />
       )}
