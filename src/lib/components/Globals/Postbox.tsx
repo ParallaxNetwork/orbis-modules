@@ -132,7 +132,7 @@ const Postbox = ({
       const newContent = { ...editPost.content, body, mentions: _mentions }
       if (callback) callback(newContent)
 
-      // await orbis.editPost(editPost.stream_id, newContent)
+      await orbis.editPost(editPost.stream_id, newContent)
     } else {
       const content: IOrbisPostContent = {
         body,
@@ -172,12 +172,12 @@ const Postbox = ({
       if (callback) callback(_callbackContent)
       postBoxArea.current.innerText = ''
 
-      // const res = await orbis.createPost(content)
+      const res = await orbis.createPost(content)
 
-      // if (res.status === 200) {
-      //   _callbackContent.stream_id = res.doc
-      //   if (callback) callback(_callbackContent)
-      // }
+      if (res.status === 200) {
+        _callbackContent.stream_id = res.doc
+        if (callback) callback(_callbackContent)
+      }
     }
   }
 
