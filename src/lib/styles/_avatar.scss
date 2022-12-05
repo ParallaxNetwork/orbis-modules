@@ -1,0 +1,10 @@
+@layer components {
+  .avatar {
+    @apply
+    w-full
+    aspect-square
+    overflow-hidden
+    rounded-full
+    bg-[var(--orbis-bg-color-muted)];
+  }
+}

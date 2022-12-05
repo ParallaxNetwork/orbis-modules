@@ -1,0 +1,5 @@
+@layer components {
+  .replies {
+    @apply ml-1 pl-2 border-l border-[var(--orbis-border-color-muted)];
+  }
+}

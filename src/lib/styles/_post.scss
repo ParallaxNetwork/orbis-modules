@@ -1,0 +1,273 @@
+@layer components {
+  .post {
+    @apply
+    relative
+    flex
+    gap-2
+    my-4
+    text-[var(--orbis-text-color)];
+
+    &--pulse {
+      @apply animate-pulse cursor-wait;
+
+      * {
+        @apply pointer-events-none;
+      }
+    }
+
+    &--deleted {
+      @apply pointer-events-none opacity-60;
+
+      .post__content {
+        @apply text-[var(--orbis-text-color-muted)];
+      }
+    }
+
+    &__side {
+      @apply w-8 shrink-0;
+    }
+
+    &__avatar {
+      @apply w-full aspect-square;
+    }
+
+    &__content {
+      @apply grow max-w-[calc(100%-2.5rem)];
+    }
+
+    &__info {
+      @apply flex flex-wrap items-center gap-1.5 mb-1;
+
+      a {
+        @apply text-sm font-bold max-w-[150px] truncate;
+      }
+    }
+
+    &__time {
+      @apply text-xs
+      text-[var(--orbis-text-color-muted)];
+    }
+
+    &__body {
+      @apply relative mb-1 break-words whitespace-pre-wrap;
+    }
+
+    &__edited {
+      @apply ml-1 text-sm text-[var(--orbis-text-color-muted)];
+    }
+
+    &__metadata {
+      @apply rounded-md
+      overflow-hidden
+      my-2
+      border
+      border-[var(--orbis-border-color-muted)]
+      bg-[var(--orbis-bg-color-muted)];
+
+      &__image {
+        @apply w-full aspect-[16/7];
+
+        img {
+          @apply w-full h-full object-cover object-center;
+        }
+      }
+
+      &__content {
+        @apply py-2 px-4;
+
+        small {
+          @apply text-[var(--orbis-text-color)];
+        }
+
+        h1 {
+          @apply mb-1
+          text-[var(--orbis-active-color)];
+        }
+
+        p {
+          @apply text-sm
+          text-[var(--orbis-text-color)];
+        }
+      }
+    }
+
+    &__menu {
+      @apply flex items-center justify-between mt-2;
+
+      .post__reactions,
+      .post__actions {
+        @apply flex items-center gap-3;
+
+        button,
+        a {
+          @apply 
+          flex
+          items-center
+          gap-1
+          opacity-75
+          outline-none
+          hover:opacity-100
+          text-[var(--orbis-inactive-color)];
+
+          &.active {
+            @apply
+            opacity-100
+            text-[var(--orbis-active-color)];
+          }
+
+          .icon {
+            @apply block w-4 h-4;
+          }
+        }
+
+        .cerscan-proof {
+          @apply text-[var(--orbis-active-color)];
+        }
+      }
+    }
+
+    &__popover {
+      @apply
+      p-1
+      rounded-md
+      border
+      border-[var(--orbis-border-color)]
+      flex
+      flex-col
+      min-w-[120px]
+      bg-[var(--orbis-bg-color)]
+      shadow-md
+      z-10
+      animate-[slideUpAndFade_0.5s_cubic-bezier(0.16,1,0.3,1)];
+
+      div[role=menuitem] {
+        @apply
+        block
+        py-1
+        px-2
+        text-sm
+        bg-opacity-10
+        select-none
+        cursor-pointer
+        rounded-md
+        outline-none;
+
+        &.edit {
+          @apply
+          text-[var(--orbis-text-color)]
+          hover:bg-[var(--orbis-bg-color-muted)];
+
+          &[data-highlighted] {
+            @apply bg-[var(--orbis-bg-color-muted)];
+          }
+        }
+
+        &.delete {
+          @apply text-red-500 hover:bg-red-500 hover:text-white;
+          &[data-highlighted] {
+            @apply bg-red-500 text-white;
+          }
+        }
+      }
+
+      &__arrow {
+        @apply fill-[var(--orbis-border-color)];
+      }
+    }
+
+    &__deleteconfirmation {
+      &__overlay {
+        @apply
+        bg-black/40
+        fixed
+        inset-0
+        z-10
+        animate-[overlayShow_150ms_cubic-bezier(0.16,1,0.3,1)];
+      }
+
+      &__content {
+        @apply
+        bg-[var(--orbis-bg-color)]
+        border
+        border-[var(--orbis-border-color-muted)]
+        rounded-md
+        shadow-md
+        absolute
+        top-1/2
+        left-1/2
+        -translate-x-1/2
+        -translate-y-1/2
+        w-full
+        max-w-[500px]
+        z-10
+        text-sm
+        animate-[contentShow_150ms_cubic-bezier(0.16,1,0.3,1)];
+      }
+
+      &__title,
+      &__description {
+        @apply
+        text-center
+        py-2
+        px-4
+        border-b
+        border-[var(--orbis-border-color-muted)];
+      }
+
+      &__title {
+        @apply text-[var(--orbis-text-color)];
+      }
+
+      &__description {
+        @apply text-[var(--orbis-text-color-muted)];
+      }
+
+      &__actions {
+        @apply flex items-center justify-center gap-2 py-2;
+
+        button {
+          @apply py-1 px-3 rounded-md;
+
+          &.delete {
+            @apply bg-red-500 text-white;
+          }
+
+          &.cancel {
+            @apply bg-[var(--orbis-text-color)] text-[var(--orbis-bg-color)];
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideUpAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

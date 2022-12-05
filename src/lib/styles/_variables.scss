@@ -1,0 +1,30 @@
+:root {
+  --orbis-text-color: theme('colors.neutral.900');
+  --orbis-text-color-muted: theme('colors.neutral.500');
+  --orbis-bg-color: theme('colors.white');
+  --orbis-bg-color-muted: theme('colors.neutral.300');
+  --orbis-border-color: theme('colors.neutral.700');
+  --orbis-border-color-muted: theme('colors.neutral.300');
+  --orbis-active-color: theme('colors.violet.700');
+  --orbis-inactive-color: theme('colors.neutral.700');
+  --orbis-gradient-button: linear-gradient(
+    to right,
+    theme('colors.violet.800'),
+    theme('colors.purple.600')
+  );
+  --orbis-gradient-button-hover: linear-gradient(
+    to right,
+    theme('colors.violet.700'),
+    theme('colors.purple.500')
+  );
+}
+
+.dark {
+  --orbis-text-color: theme('colors.white');
+  --orbis-bg-color: theme('colors.neutral.900');
+  --orbis-bg-color-muted: theme('colors.neutral.700');
+  --orbis-border-color: theme('colors.neutral.300');
+  --orbis-border-color-muted: theme('colors.neutral.700');
+  --orbis-active-color: theme('colors.lime.400');
+  --orbis-inactive-color: theme('colors.neutral.500');
+}

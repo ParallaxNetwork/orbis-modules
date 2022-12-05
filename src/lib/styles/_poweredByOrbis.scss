@@ -1,0 +1,15 @@
+@layer components {
+  .powered-by-orbis {
+    @apply
+    w-full
+    shrink-0
+    px-2
+    flex
+    justify-center
+    text-[var(--orbis-text-color)];
+
+    a {
+      @apply block w-full max-w-[100px]
+    }
+  }
+}

@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'variables';
+
+@layer components {
+  .content {
+    h1 {
+      @apply text-3xl font-bold;
+    }
+
+    h2 {
+      @apply text-2xl font-bold;
+    }
+
+    h3 {
+      @apply text-xl font-bold;
+    }
+
+    h4 {
+      @apply text-lg font-bold;
+    }
+
+    h5 {
+      @apply font-bold;
+    }
+
+    p {
+      @apply mb-4 last:mb-0;
+    }
+
+    a {
+      @apply
+      no-underline
+      text-[var(--orbis-active-color)]
+      text-opacity-75
+      hover:text-opacity-100;
+    }
+
+    .highlighted {
+      @apply
+      text-[var(--orbis-active-color)];
+    }
+  }
+}
+
+@import 'avatar';
+@import 'badge';
+@import 'post';
+@import 'replies';
+@import 'postbox';
+@import 'emojiPicker';
+@import 'comments';
+@import 'loading';
+@import 'gradientButton';
+@import 'replyto';
+@import 'mentions';
+@import 'poweredByOrbis';

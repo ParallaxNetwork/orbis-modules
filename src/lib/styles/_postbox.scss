@@ -1,0 +1,52 @@
+@layer components {
+  .postbox {
+    @apply relative z-10 flex flex-col;
+
+    &__wrapper {
+      @apply
+      flex
+      flex-col
+      items-end
+      py-2
+      px-3
+      w-full
+      bg-[var(--orbis-bg-color)]
+      border
+      rounded-md
+      border-[var(--orbis-border-color-muted)]
+    }
+
+    &__contenteditable {
+      @apply relative
+      w-full
+      max-h-[7rem]
+      overflow-auto
+      break-words
+      whitespace-pre-wrap
+      text-[var(--orbis-text-color)]
+      focus:border-[var(--orbis-border-color)]
+      focus:outline-none
+      focus:ring-0
+      before:pointer-events-none
+      before:text-[var(--orbis-text-color-muted)]
+      empty:before:content-[attr(data-placeholder)];
+    }
+
+    &__share {
+      @apply ml-auto mt-2 py-1 px-6 text-sm text-white rounded-md;
+      background-image: var(--orbis-gradient-button);
+
+      &:hover {
+        background-image: var(--orbis-gradient-button-hover);
+      }
+    }
+
+    &__editmenu {
+      @apply my-2 text-sm text-[var(--orbis-text-color-muted)];
+
+      button {
+        @apply text-[var(--orbis-active-color)];
+      }
+    }
+  }
+}

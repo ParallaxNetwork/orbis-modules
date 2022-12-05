@@ -1,0 +1,10 @@
+@layer components {
+  .gradient-button {
+    @apply py-1.5 px-4 my-2 w-full text-white rounded-md;
+    background-image: var(--orbis-gradient-button);
+
+    &:hover {
+     background-image: var(--orbis-gradient-button-hover);
+    }
+  }
+}

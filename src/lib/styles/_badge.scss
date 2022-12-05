@@ -1,0 +1,5 @@
+@layer components {
+  .badge {
+    @apply px-3 py-0.5 bg-[var(--orbis-text-color-muted)] text-white text-xs rounded-full;
+  }
+}

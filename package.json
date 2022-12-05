@@ -1,0 +1,60 @@
+{
+  "name": "orbis-comment-module",
+  "private": true,
+  "version": "0.0.1",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/orbis-react-modules.umd.js",
+  "module": "./dist/orbis-react-modules.es.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "@orbisclub/orbis-sdk": "^0.4.4-beta.41",
+    "@radix-ui/react-alert-dialog": "^1.0.2",
+    "@radix-ui/react-dropdown-menu": "^2.0.1",
+    "ethereum-blockies-base64": "^1.0.2",
+    "luxon": "^3.1.0",
+    "react-string-replace": "^1.1.0"
+  },
+  "devDependencies": {
+    "@rainbow-me/rainbowkit": "^0.8.0",
+    "@types/luxon": "^3.1.0",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
+    "@vitejs/plugin-react": "^2.2.0",
+    "autoprefixer": "^10.4.13",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "ethers": "^5.7.2",
+    "postcss": "^8.4.19",
+    "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.56.1",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3",
+    "vite-plugin-dts": "^1.7.1",
+    "wagmi": "^0.8.10"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/orbis-react-modules.es.js",
+      "require": "./dist/orbis-react-modules.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  }
+}

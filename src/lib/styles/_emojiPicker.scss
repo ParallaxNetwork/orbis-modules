@@ -1,0 +1,19 @@
+@layer components {
+  .emoji-button {
+    @apply w-5 h-5 text-[var(--orbis-text-color-muted)];
+  }
+
+  .emoji-popover {
+    @apply z-20 border border-[var(--orbis-border-color)] rounded-lg;
+  }
+
+  .emoji-arrow {
+    @apply fill-[var(--orbis-border-color)];
+  }
+
+  .emoji-picker {
+    &-wrapper {
+      @apply absolute left-0 w-full bottom-full;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+@layer components {
+  .mentions {
+    @apply
+    absolute
+    flex
+    flex-col
+    gap-1
+    w-full
+    left-0
+    px-1
+    pt-1
+    border
+    border-[var(--orbis-border-color-muted)]
+    bg-[var(--orbis-bg-color)]
+    overflow-hidden;
+
+    &--top {
+      @apply bottom-full -mb-2 pb-3 rounded-t-lg;
+    }
+
+    &--bottom {
+      @apply top-full -mt-2 pt-3 rounded-b-lg;
+    }
+
+    &__scrollable {
+      @apply max-h-[12rem] overflow-y-auto;
+    }
+
+    &__loading {
+      @apply py-2 px-4 text-xs;
+    }
+
+    &__account {
+      @apply
+      flex
+      items-center
+      w-full
+      space-x-2
+      h-12
+      px-2
+      rounded-md
+      cursor-pointer
+      text-[var(--orbis-text-color-muted)]
+      hover:bg-black/5;
+
+      &__avatar {
+        @apply w-8 h-8 shrink-0;
+      }
+
+      &__name {
+        @apply grow truncate text-sm flex items-center gap-1;
+      }
+    }
+  }
+}

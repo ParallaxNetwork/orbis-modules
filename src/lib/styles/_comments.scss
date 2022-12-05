@@ -1,0 +1,62 @@
+@layer components {
+  .comments {
+    @apply relative max-h-full flex flex-col gap-4;
+
+    &__postbox {
+      @apply px-4;
+    }
+
+    &__posts {
+      @apply grow overflow-x-hidden overflow-y-auto px-4 flex flex-col;
+    }
+
+    &__post {
+      @apply
+      border-t
+      border-t-[var(--orbis-border-color-muted)]
+      first:mt-0
+      first:border-t-0;
+
+      &__toggle-replies {
+        @apply
+        flex
+        items-center
+        gap-2
+        ml-10
+        -mt-2
+        mb-4
+        text-[var(--orbis-active-color)];
+
+        &::before {
+          content: '';
+          border: 5px 5px 0;
+          @apply
+          border-[5px]
+          border-b-0
+          border-[var(--orbis-active-color)]
+          border-x-transparent;
+        }
+
+        &.opened {
+          &::before {
+            @apply border-b-[5px] border-t-0;
+          }
+        }
+      }
+    }
+
+    ::-webkit-scrollbar {
+      @apply w-1.5;
+    }
+
+    ::-webkit-scrollbar-track {
+      @apply bg-transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      @apply
+      rounded-md
+      bg-[var(--orbis-border-color)];
+    }
+  }
+}

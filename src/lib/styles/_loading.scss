@@ -1,0 +1,10 @@
+@layer components {
+  .loading {
+    @apply py-1.5 px-4 my-4
+    w-full 
+    text-center 
+    text-white 
+    rounded-md
+    bg-[var(--orbis-text-color-muted)];
+  }
+}
