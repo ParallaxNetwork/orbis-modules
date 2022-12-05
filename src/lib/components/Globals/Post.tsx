@@ -30,7 +30,7 @@ const Post = ({
   onClickReply?: (value: IOrbisPost) => void
 }) => {
   const postItem = useRef<any>()
-  const { orbis, profile, icons, profileUrl } = useOrbis()
+  const { orbis, profile, icons, profileUrl, showCerscanProof } = useOrbis()
   const [reacted, setReacted] = useState<string | null>(null)
   const [postClone, setPostClone] = useState<IOrbisPost>({ ...post })
   const [hideOverflow, setHideOverflow] = useState<boolean>(
@@ -117,12 +117,15 @@ const Post = ({
     return classes.join(' ')
   }, [postClone, isDeleted])
 
-  useInterval(() => {
-    if (postClone) {
-      const _date = formatDate(postClone.timestamp)
-      setPostDate(_date)
-    }
-  }, !postClone ? null : 60000)
+  useInterval(
+    () => {
+      if (postClone) {
+        const _date = formatDate(postClone.timestamp)
+        setPostDate(_date)
+      }
+    },
+    !postClone ? null : 60000
+  )
 
   useEffect(() => {
     if (post) getPost()
@@ -276,17 +279,19 @@ const Post = ({
                     </button>
                   </PostActions>
                 )}
-                <a
-                  href={`https://cerscan.com/mainnet/stream/${postClone.stream_id}`}
-                  className="cerscan-proof"
-                  target="_blank"
-                  rel="noreferrer"
-                  title="View on Cerscan"
-                >
-                  <span className="icon">
-                    <IconCerscan />
-                  </span>
-                </a>
+                {showCerscanProof && (
+                  <a
+                    href={`https://cerscan.com/mainnet/stream/${postClone.stream_id}`}
+                    className="cerscan-proof"
+                    target="_blank"
+                    rel="noreferrer"
+                    title="View on Cerscan"
+                  >
+                    <span className="icon">
+                      <IconCerscan />
+                    </span>
+                  </a>
+                )}
               </div>
             )}
           </div>
