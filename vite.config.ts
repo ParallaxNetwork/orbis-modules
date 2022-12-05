@@ -19,6 +19,7 @@ export default defineConfig({
   },
   build: {
     target: 'es2020',
+    // Running build script will create the library
     lib: {
       entry: resolve(__dirname, 'src/lib/index.ts'),
       name: 'orbis-modules',
